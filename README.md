@@ -33,6 +33,8 @@ The following scripts and categories are currently available:
 The generic category contains scripts that can be run on any Linux distribution, and currently includes:
 
 - Configure Git
+- Shortcut to `.local/share`
+- Create Projects folder
 
 ## Contributing
 
