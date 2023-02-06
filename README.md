@@ -3,6 +3,8 @@
 A collection of standard scripts for installing and configuring various Linux applications and services across multiple distributions.\
 The scripts cover a range of topics including proprietary NVIDIA drivers, media codecs, games, development tools, text editors, and more.
 
+![demo](https://github.com/Hezkore/linux-script-hub/blob/master/demo.png?raw=true)
+
 ## Usage
 
 To run the script hub, follow these steps:
