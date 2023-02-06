@@ -41,19 +41,44 @@ fi
 # Clear the screen
 clear
 
-# Sanity check for lsb_release
+# Detect linux distribution
+export distro="unknown"
 if ! command -v lsb_release >/dev/null 2>&1; then
-	error "lsb_release is not installed!"
+	#error "lsb_release is not installed!"
+	echo "Could not detect the Linux distribution"
+else
+	# Detect the Linux distribution in an exportable variable
+	distro=$(lsb_release -sd)
+	# Remove any quotes
+	distro=$(echo "$distro" | tr -d '"')
+	# Convert to lowercase
+	distro=$(echo "$distro" | tr '[:upper:]' '[:lower:]')
+	# Replace spaces with underscores
+	distro=$(echo "$distro" | tr ' ' '_')
 fi
 
-# Detect the Linux distribution in an exportable variable
-export distro=$(lsb_release -sd)
-# Remove any quotes
-distro=$(echo "$distro" | tr -d '"')
-# Convert to lowercase
-distro=$(echo "$distro" | tr '[:upper:]' '[:lower:]')
-# Replace spaces with underscores
-distro=$(echo "$distro" | tr ' ' '_')
+# The directory exists, right?
+if [ ! -d "$distro_path$distro" ]; then
+	echo "Your Linux distribution might not be supported"
+	# Ask the user to pick a distribution
+	echo "Please select the Linux distribution you are using"
+	echo
+	
+	# List all the available distributions by directory name
+	all_distro=$(ls -1 "$distro_path")
+	# Show all distro options, list by number and wait for user to pick one
+	select distro in $all_distro; do
+		# Check if the user picked a valid option
+		if [ -d "$distro_path$distro" ]; then
+			clear
+			# Break out of the loop
+			break
+		else
+			# Ask the user to pick a valid option
+			echo "Please select a valid option"
+		fi
+	done
+fi
 
 # Display the detected distribution info.txt file
 # Otherwise error out and assume the distribution is not supported
