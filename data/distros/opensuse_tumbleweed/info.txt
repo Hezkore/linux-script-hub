@@ -1,0 +1,4 @@
+OpenSUSE Tumbleweed
+
+Zypper will be used during any install or update of the packages.
+Curl is used to download software not available in the repositories.
