@@ -20,6 +20,13 @@ packages_failed=()
 
 _user_must_restart=0
 
+# If _original_user is empty we fetch the original user name
+if [ -z "$_original_user" ]; then
+	export _original_user="$USER"
+fi
+USER=$_original_user
+HOME="/home/$_original_user"
+
 ### Functions ###
 
 # Error handing function
@@ -260,7 +267,7 @@ run_package() {
 	fi
 	
 	# Run the package and see if it returns an error
-	source "$1"
+	source "$1" "$_original_user"
 	if [ $? -ne 0 ]; then
 		#error "The package '$1' returned an error!"
 		echo "The package '$1' returned an error!"
@@ -274,11 +281,53 @@ run_package() {
 	return 0
 }
 
+# Notify the user that a restart is required
 restart_required() {
 	_user_must_restart=1
 }
 
+# Check if a restart is required
 awaiting_restart() {
 	echo "$_user_must_restart"
+	return 0
+}
+
+# Create a symlink and check if it was successful
+create_symlink() {
+	# Does the source exist?
+	if [ ! -e "$1" ]; then
+		echo "The source '$1' does not exist!"
+		return 1
+	fi
+	
+	# Create the symlink
+	ln -s "$1" "$2"
+	
+	# Success?
+	if [ ! -L "$2" ]; then
+		echo "Failed to create symlink '$2'!"
+		return 1
+	fi
+	
+	# Set permissions
+	chown -R "$USER" "$2"
+	
+	return 0
+}
+
+# Create a directory and check if it was successful
+create_dir() {
+	# Create the directory
+	mkdir -p "$1"
+	
+	# Success?
+	if [ ! -d "$1" ]; then
+		echo "Failed to create directory '$1'!"
+		return 1
+	fi
+	
+	# Set permissions
+	chown -R "$USER" "$1"
+	
 	return 0
 }

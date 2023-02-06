@@ -14,13 +14,13 @@ if [ ! -d data ] || [ -z "$(ls -A data)" ]; then
 fi
 
 # Verify elevated privileges for necessary operations
-if [ "$EUID" -ne 0 ]; then
+if [ "$EUID" -ne 0 ]; then # Check if we're root (user id 0)
 	# Check if sudo is available
 	if command -v sudo &>/dev/null; then
 		# Explain what's going on and run the script with sudo
 		echo "This script requires elevated permissions"
 		echo "Please enter your password to run it with 'sudo'"
-		sudo "$0" "$@"
+		sudo -E "$0" "$@"
 		exit
 	else
 		# Check if su is available
@@ -44,7 +44,6 @@ clear
 # Detect linux distribution
 export distro="unknown"
 if ! command -v lsb_release >/dev/null 2>&1; then
-	#error "lsb_release is not installed!"
 	echo "Could not automatically detect your Linux distribution"
 else
 	distro=$(convert_to_dir_name "$(get_distro)")
