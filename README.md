@@ -44,7 +44,7 @@ Feel free to contribute to this repository by submitting a pull request with you
 
 
 ### Adding a New Distribution
-Run `lsb_release -d` in a terminal to check your Linux distribution. Then create a new directory in `data/distros/` with the name of your distribution, remember to use lowercase letters and underscores instead of spaces. Then create a `info.txt` file in the new directory, and add any information you want to be displayed in the script hub.
+Run `lsb_release -d` in a terminal to check your Linux distribution. Then create a new directory in `data/distros/` with the name of your distribution, remember to use lowercase letters and underscores instead of spaces. Then create a `info.txt` file in the new directory, enter the distribution name first and then add any information you want to be displayed in the script hub.
 
 ### Adding a New Distribution-Specific Script
 Create a new script in the directory of your distribution, and add the following header to the top of the file:
