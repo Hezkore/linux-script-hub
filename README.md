@@ -25,8 +25,8 @@ The distribution-specific scripts use the relevant package manager and tools spe
 The following scripts and categories are currently available:
 
 ### Essentials
-- NVIDIA Drivers
-- Media Codecs
+- Install NVIDIA Drivers
+- Install Media Codecs
 
 ### Generic
 
@@ -39,7 +39,7 @@ The generic category contains scripts that can be run on any Linux distribution,
 You are welcome to contribute to this repository by submitting a pull request with your changes or additions, ensuring they adhere to the established script standards.
 
 ### Adding a New Distribution
-To add a new distribution, run `lsb_release -d` in a terminal to determine the distribution, then create a new directory in `data/distros/` with the distribution name using lowercase letters and underscores instead of spaces. Create a `info.txt` file in the new directory and enter the distribution name first, followed by any additional information to be displayed in the script hub.
+To add a new distribution, run `lsb_release -d` in a terminal to determine the distribution, then create a new directory in `data/distros/` with the distribution name using lowercase letters, underscores instead of spaces and remove any disallowed characters, such as `\/,:*?"<>'`. Create a `info.txt` file in the new directory and enter the distribution name first, followed by any additional information to be displayed in the script hub.
 
 ### Adding a New Distribution-Specific Script
 To add a new distribution-specific script, create a new script in the directory for your distribution and add the following header to the top of the file:

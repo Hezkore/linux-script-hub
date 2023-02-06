@@ -45,21 +45,14 @@ clear
 export distro="unknown"
 if ! command -v lsb_release >/dev/null 2>&1; then
 	#error "lsb_release is not installed!"
-	echo "Could not detect the Linux distribution"
+	echo "Could not automatically detect your Linux distribution"
 else
-	# Detect the Linux distribution in an exportable variable
-	distro=$(lsb_release -sd)
-	# Remove any quotes
-	distro=$(echo "$distro" | tr -d '"')
-	# Convert to lowercase
-	distro=$(echo "$distro" | tr '[:upper:]' '[:lower:]')
-	# Replace spaces with underscores
-	distro=$(echo "$distro" | tr ' ' '_')
+	distro=$(convert_to_dir_name "$(get_distro)")
 fi
 
 # The directory exists, right?
 if [ ! -d "$distro_path$distro" ]; then
-	echo "Your Linux distribution might not be supported"
+	echo "Your Linux distribution ($distro) might not be supported"
 	# Ask the user to pick a distribution
 	echo "Please select the Linux distribution you are using"
 	echo

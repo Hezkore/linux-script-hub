@@ -31,6 +31,31 @@ error() {
 }
 export -f error
 
+# Convert a string to an acceptable directory name
+convert_to_dir_name() {
+	dir_name="$1"
+	
+	# Replace spaces with underscores
+	dir_name=$(echo "$dir_name" | tr ' ' '_')
+	# Remove any disallowed characters
+	dir_name=$(echo "$dir_name" | tr -d '\/,:*?"<>')
+	# Convert to lowercase
+	dir_name=$(echo "$dir_name" | tr '[:upper:]' '[:lower:]')
+	
+	echo "$dir_name"
+	return 0
+}
+
+# Get distro name
+get_distro() {
+	distro_name=$(lsb_release -sd)
+	distro_name="${distro_name%\"}"
+	distro_name="${distro_name#\"}"
+
+	echo "$distro_name"
+	return 0
+}
+
 # Verify if application is installed
 # Returns 0 if installed, 1 if not
 verify_app() {
