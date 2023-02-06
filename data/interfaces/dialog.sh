@@ -21,7 +21,7 @@ start_interface() {
 	# Pass the options string to dialog
 	selected=$(dialog --stdout --ok-label "Select" --cancel-label "Exit" --title "$title" --backtitle "Script Categories" --menu "Select a category:" 0 0 0 $options)
 	if [ $? -eq 0 ]; then
-		category="$distro_path$distro/${all_categories[$selected]}"
+		category=$(get_category_path "${all_categories[$selected]}")
 		
 		### Package Selection ###
 		
@@ -37,6 +37,10 @@ start_interface() {
 		done
 		
 		selected=$(dialog --stdout --ok-label "Run" --cancel-label "Back" --backtitle "Package Selection" --checklist "Select packages to install:" 0 0 0 "${options[@]}")
+		# Did the user press back?
+		if [ $? -eq 1 ]; then
+			return 0
+		fi
 		# Check if selected is empty
 		if [ -z "$selected" ]; then
 			dialog --title "No Packages Selected" --backtitle "Package Selection" --msgbox "No packages were selected. Press [Space] to select a package." 0 0

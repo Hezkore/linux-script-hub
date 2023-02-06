@@ -6,6 +6,7 @@
 title="Linux Script Hub"
 
 distro_path="data/distros/"
+generic_path="data/generic/"
 
 interface_default="text"
 interfaces=("zenity" "dialog") # In the order of preference
@@ -92,8 +93,22 @@ get_distro_categories() {
 		distro_categories=(${distro_categories[@]#$distro_path$distro/})
 		# Strip trailing slash from category names
 		distro_categories=(${distro_categories[@]%/})
+		
+		# Add the generic category as well
+		distro_categories+=("generic")
 	fi
 	echo "${distro_categories[@]}"
+	return 0
+}
+
+# Get the path to a category
+get_category_path() {
+	# Check if the category is generic
+	if [ "$1" = "generic" ]; then
+		echo "$generic_path"
+	else
+		echo "$distro_path$distro/$1/"
+	fi
 	return 0
 }
 
@@ -208,6 +223,7 @@ run_package() {
 	# Clean slate
 	clear
 	echo "Running package '$1'..."
+	echo
 	
 	# Make sure the package is executable
 	if [ ! -x "$1" ]; then

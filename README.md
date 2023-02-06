@@ -28,6 +28,14 @@ The following scripts and categories are currently available:
 * NVIDIA Drivers
 * Media Codecs
 
+## Generic Category
+
+The generic category contains scripts that are not specific to any particular distribution, and can be run on any Linux distribution.
+
+It currently contains the following scripts:
+
+* Configure Git
+
 ## Contribution
 
 Feel free to contribute to this repository by submitting a pull request with your changes or additions, ensuring they adhere to the established script standards.
