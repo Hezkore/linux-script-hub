@@ -65,7 +65,7 @@ start_interface() {
 		# Show the results of the packages
 		# If get_packages_failed_count is 0 then all packages were successful
 		if [ $(get_packages_failed_count) -eq 0 ]; then
-			dialog --title "Success" --backtitle "Script Results" --msgbox "All script were installed successfully." 0 0
+			dialog --title "Success" --backtitle "Script Results" --msgbox "All scripts ran successfully." 0 0
 		else
 			# Show a list of the failed packages
 			dialog --title "Failed Scripts" --backtitle "Script Results" --msgbox "$(get_packages_failed)" 0 0
