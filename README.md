@@ -57,6 +57,8 @@ Create a new script in the directory of your distribution, and add the following
 # Description: A description of my script
 # More description text here
 ```
+Remember that the description text should tell the user which external dependencies are required for the script to run, and what the script does.
+
 Then add your script code below the header.
 
 Any command returning a non-zero exit code will be considered a failure, and the script will exit with an error message.\
