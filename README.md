@@ -13,12 +13,12 @@ To run the script hub, follow these steps:
 3. Run the script with the command `./main.sh`.
 4. The script will automatically detect your Linux distribution and present the appropriate interface.
 
-Alternatively, you can run the distribution-specific script directly from the `data/distros/` directory.
+Alternatively, you can run the distribution-specific scripts directly from the `data/distros/` directory.
 
 ## Script Adherence and Standardization
 
 This repository aims to maintain a high level of standardization in its scripts, written in accordance with the POSIX-compliant bash shell script syntax.\
-The script hub uses the Linux Standard Base tool `lsb_release` to accurately detect the running Linux distribution, as well as `sudo` or `su` to run with elevated permissions if necessary.
+The script hub attempts to use the Linux Standard Base tool `lsb_release` to accurately detect the running Linux distribution, as well as `sudo` or `su` to run with elevated permissions if necessary.
 
 Distribution-specific scripts make use of the relevant package manager and tools specific to the distribution, to ensure proper installation and configuration of applications and services.
 
