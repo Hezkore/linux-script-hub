@@ -55,6 +55,9 @@ To add a new distribution-specific script, create a new script in the directory 
 The description should inform the user of any external dependencies required to run the script and describe what the script does.\
 Add your script code below the header.
 
+Remember that the script is running as root, so you do not need to use `sudo` or `su` to run commands with elevated permissions.\
+This also means that `~` will refer to the root user's home directory, so you should use `$HOME` instead.
+
 A non-zero exit code from any command will be considered a failure, and the script will exit with an error message. You can manually trigger an error with `return 1`.
 
 Call `restart_required` to prompt the user to restart their system after the script has finished running.
