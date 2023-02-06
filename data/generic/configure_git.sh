@@ -6,7 +6,7 @@
 # Description: Set your name and email for Git
 
 # Make sure Git is installed
-if ! verify_app "gita"; then
+if ! verify_app "git"; then
 	echo "Git is not installed!"
 	return 1
 fi

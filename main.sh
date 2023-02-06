@@ -111,7 +111,7 @@ else
 fi
 
 # Clear the screen
-#clear
+clear
 
 # Exit with success
 exit 0
