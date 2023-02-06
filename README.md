@@ -41,3 +41,28 @@ It currently contains the following scripts:
 ## Contribution
 
 Feel free to contribute to this repository by submitting a pull request with your changes or additions, ensuring they adhere to the established script standards.
+
+
+### Adding a New Distribution
+Run `lsb_release -d` in a terminal to check your Linux distribution. Then create a new directory in `data/distros/` with the name of your distribution, remember to use lowercase letters and underscores instead of spaces. Then create a `info.txt` file in the new directory, and add any information you want to be displayed in the script hub.
+
+### Adding a New Distribution-Specific Script
+Create a new script in the directory of your distribution, and add the following header to the top of the file:
+```bash
+#!/bin/bash
+# -*- Mode: sh; coding: utf-8; indent-tabs-mode: t; tab-width: 4 -*-
+# Ensure POSIX compliance
+
+# Name: My Script
+# Description: A description of my script
+# More description text here
+```
+Then add your script code below the header.
+
+Any command returning a non-zero exit code will be considered a failure, and the script will exit with an error message.\
+You can manually trigger an error with `return 1`.
+
+Call `restart_required` to prompt the user to restart their system after the script has finished running.
+
+### Adding a New Generic Script
+Same as adding a new distribution-specific script, but create the script in the `data/generic/` directory instead.
