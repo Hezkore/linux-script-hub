@@ -343,10 +343,38 @@ Type=Application
 Terminal=false
 Categories=Application;"
 	echo -e "$desktop" > "$HOME/.local/share/applications/$4"
+	
+	# Set permissions
+	chown -R "$USER" "$HOME/.local/share/applications/$4"
+	
+	# Success?
+	if [ ! -f "$HOME/.local/share/applications/$4" ]; then
+		echo "Failed to create desktop file '$HOME/.local/share/applications/$4'!"
+		return 1
+	fi
+	
+	return 0
 }
 
-# Add to bin
+# Add a file to the user's bin directory
 add_to_bin() {
+	# Check if source exists
+	if [ ! -e "$1" ]; then
+		echo "The source '$1' does not exist!"
+		return 1
+	fi
+	
+	# Create the symblink in the user's bin directory
 	ln -s "$1" "$HOME/.local/bin/$2"
+	
+	# Success?
+	if [ ! -L "$HOME/.local/bin/$2" ]; then
+		echo "Failed to create symlink '$HOME/.local/bin/$2'!"
+		return 1
+	fi
+	
+	# Set permissions
 	chown -R "$USER" "$HOME/.local/bin/$2"
+	
+	return 0
 }
