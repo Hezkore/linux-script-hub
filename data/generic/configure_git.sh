@@ -19,6 +19,10 @@ echo "Your name is now set to: $(git config --global user.name)"
 echo
 
 # Set email
-read -r -p "Enter your name for Git: " email
+read -r -p "Enter your email for Git: " email
 git config --global user.email "$email"
 echo "Your email is now set to: $(git config --global user.email)"
+
+# Set permissions
+chown $USER "$HOME/.gitconfig"
+chmod 644 "$HOME/.gitconfig"
