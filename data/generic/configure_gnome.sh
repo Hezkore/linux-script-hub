@@ -54,4 +54,4 @@ su $USER -c 'gsettings set org.gtk.Settings.FileChooser sort-directories-first "
 
 su $USER -c 'gsettings set org.gnome.nautilus.preferences show-create-link "true"'
 su $USER -c 'gsettings set org.gnome.nautilus.preferences default-folder-viewer "icon-view"'
-su $USER -c 'gsettings set org.gnome.nautilus.icon-view default-zoom-level "small"'
+su $USER -c 'gsettings set org.gnome.nautilus.icon-view default-zoom-level "small-plus"'
