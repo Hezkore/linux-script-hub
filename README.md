@@ -32,6 +32,9 @@ The following scripts and categories are currently available:
 - Install Git
 - Install Visual Studio Code
 
+### Gaming
+- Install Steam
+
 ### Generic
 
 The generic category contains scripts that can be run on any Linux distribution, and currently includes:
