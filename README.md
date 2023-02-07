@@ -30,6 +30,7 @@ The following scripts and categories are currently available:
 
 ### Development
 - Install Git
+- Install Visual Studio Code
 
 ### Generic
 

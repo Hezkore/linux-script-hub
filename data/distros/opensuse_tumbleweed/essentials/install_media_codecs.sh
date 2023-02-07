@@ -6,7 +6,7 @@
 # Description: Adds the Packman repository and installs the media codecs.
 
 # Add the repo
-zypper --non-interactive addrepo -cfp 90 'https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Tumbleweed/' packman
+zypper --non-interactive addrepo --refresh -cfp 90 'https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Tumbleweed/' packman
 zypper --gpg-auto-import-keys refresh
 
 # Install

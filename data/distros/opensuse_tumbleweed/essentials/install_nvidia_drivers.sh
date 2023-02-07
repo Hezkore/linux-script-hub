@@ -9,7 +9,7 @@
 # Note that this script assumes that the multiversion feature for kernel packages is enabled.
 
 # Add the repo
-zypper --non-interactive addrepo -cfp 98 https://download.nvidia.com/opensuse/tumbleweed NVIDIA
+zypper --non-interactive addrepo --refresh -cfp 98 https://download.nvidia.com/opensuse/tumbleweed NVIDIA
 zypper --gpg-auto-import-keys refresh
 
 # Install
