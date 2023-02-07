@@ -331,3 +331,22 @@ create_dir() {
 	
 	return 0
 }
+
+# Create a .desktop file
+# Pass Name, Icon, Exec and Filename
+write_desktop_file() {
+	desktop="[Desktop Entry]
+Name=$1
+Icon=$2
+Exec=$3
+Type=Application
+Terminal=false
+Categories=Application;"
+	echo -e "$desktop" > "$HOME/.local/share/applications/$4"
+}
+
+# Add to bin
+add_to_bin() {
+	ln -s "$1" "$HOME/.local/bin/$2"
+	chown -R "$USER" "$HOME/.local/bin/$2"
+}

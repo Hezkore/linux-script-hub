@@ -11,6 +11,7 @@
 # Center new windows.
 # Disable model dialogs attachment.
 # Increase the check-alive timeout.
+# Enable minimize button on windows.
 # Nautilus sort directories first and extra options.
 
 # Make sure gsettings is installed
@@ -43,6 +44,9 @@ su $USER -c 'gsettings set org.gnome.shell.overrides attach-modal-dialogs "false
 
 # Increase check-alive
 su $USER -c 'gsettings set org.gnome.mutter check-alive-timeout 10000'
+
+# Enable minimize
+su $USER -c 'gsettings set org.gnome.desktop.wm.preferences button-layout ":minimize,close"'
 
 # Nautilus
 su $USER -c 'gsettings set org.gtk.Settings.FileChooser show-hidden "false"'

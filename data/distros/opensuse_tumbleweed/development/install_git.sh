@@ -7,5 +7,3 @@
 
 # Install
 zypper --non-interactive install -l git
-
-restart_required
