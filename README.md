@@ -28,13 +28,18 @@ The following scripts and categories are currently available:
 - Install NVIDIA Drivers
 - Install Media Codecs
 
+### Development
+- Install Git
+
 ### Generic
 
 The generic category contains scripts that can be run on any Linux distribution, and currently includes:
 
 - Configure Git
+- Configure GNOME Desktop
 - Shortcut to `.local/share`
 - Create Projects folder
+- Install Telegram Messenger
 
 ## Contributing
 
