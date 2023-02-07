@@ -44,7 +44,9 @@ clear
 # Detect linux distribution
 export distro="unknown"
 if ! command -v lsb_release >/dev/null 2>&1; then
-	echo "Could not automatically detect your Linux distribution"
+	# Try to use the /etc/os-release file and the NAME field
+	distro=$(grep -E '^NAME=' /etc/os-release | cut -d= -f2 | tr -d '"')
+	distro=$(convert_to_dir_name "$distro")
 else
 	distro=$(convert_to_dir_name "$(get_distro)")
 fi
