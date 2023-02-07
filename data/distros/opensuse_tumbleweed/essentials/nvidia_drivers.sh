@@ -8,10 +8,11 @@
 # Version G06 is compatible with all cards GT700 and up.
 # Note that this script assumes that the multiversion feature for kernel packages is enabled.
 
-zypper --non-interactive addrepo --refresh https://download.nvidia.com/opensuse/tumbleweed NVIDIA
-zypper --non-interactive install nvidia-compute-G06
-zypper --non-interactive install nvidia-gl-G06
-zypper --non-interactive install nvidia-video-G06
-zypper --non-interactive install nvidia-utils-G06
+# Add the repo
+zypper --non-interactive addrepo -cfp 98 https://download.nvidia.com/opensuse/tumbleweed NVIDIA
+zypper --gpg-auto-import-keys refresh
+
+# Install
+zypper --non-interactive install -l nvidia-compute-G06 nvidia-gl-G06 nvidia-video-G06 nvidia-utils-G06
 
 restart_required
