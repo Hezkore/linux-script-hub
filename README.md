@@ -27,6 +27,7 @@ The following scripts and categories are currently available:
 ### Essentials
 - Install NVIDIA Drivers
 - Install Media Codecs
+- Install Wine
 
 ### Development
 - Install Git
@@ -42,6 +43,7 @@ The generic category contains scripts that can be run on any Linux distribution,
 - Configure Git
 - Configure GNOME Desktop
 - Shortcut to `.local/share`
+- Shortcut to `.wine/drive_c`
 - Create Projects folder
 - Install Telegram Messenger
 
