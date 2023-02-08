@@ -12,7 +12,7 @@ Follow these steps to use the script hub:
 3. Run the script with the command `./main.sh`.
 4. The script will automatically detect your Linux distribution and present the appropriate interface.
 
-You can also run the distribution-specific scripts directly from the `data/distros/` directory.
+You can also run the distribution-specific scripts directly from the `data/distros/` directory. Just remember to run them with `sudo` or `su` if you are not already running as root.
 
 ## Adherence to Standards
 
