@@ -64,6 +64,9 @@ add_keybinding "Files Alternative" "nautilus -w" "<Super>e"
 add_keybinding "System Monitor" "gnome-system-monitor" "<Control><Alt>Delete"
 add_keybinding "System Monitor Alternative" "gnome-system-monitor" "<Control><Shift>Escape"
 
+# Unbind Logout
+su $USER -c "gsettings set org.gnome.settings-daemon.plugins.media-keys logout []"
+
 # Switch Window
 su $USER -c "gsettings set org.gnome.desktop.wm.keybindings switch-applications []"
 su $USER -c "gsettings set org.gnome.desktop.wm.keybindings switch-applications-backward []"
