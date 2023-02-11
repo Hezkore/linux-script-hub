@@ -42,6 +42,7 @@ The generic category contains scripts that can be run on any Linux distribution,
 
 - Configure Git
 - Configure GNOME Desktop
+- Keybindings for GNOME Desktop
 - Shortcut to `.local/share`
 - Shortcut to `.wine/drive_c`
 - Create Projects folder

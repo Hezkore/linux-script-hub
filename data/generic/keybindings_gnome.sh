@@ -8,6 +8,7 @@
 # Nautilus (Files) opens with Ctrl + Alt + E and Super + E
 # System Monitor opens with Ctrl + Alt + Delete and Ctrl + Shift + Esc
 
+# Helper function to add a keybinding
 add_keybinding() {
 	name=$1
 	command=$2
