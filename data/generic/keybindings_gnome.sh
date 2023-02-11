@@ -4,9 +4,10 @@
 
 # Name: Keybinds for GNOME desktop
 # Description: Sets up keybinds for GNOME desktop.
-# Terminal opens with Ctrl + Alt + T and Super + T
-# Nautilus (Files) opens with Ctrl + Alt + E and Super + E
-# System Monitor opens with Ctrl + Alt + Delete and Ctrl + Shift + Esc
+# Terminal opens with Ctrl + Alt + T and Super + T.
+# Nautilus (Files) opens with Ctrl + Alt + E and Super + E.
+# System Monitor opens with Ctrl + Alt + Delete and Ctrl + Shift + Esc.
+# Changes Switch Application to Switch Window.
 
 # Helper function to add a keybinding
 add_keybinding() {
@@ -62,3 +63,9 @@ add_keybinding "Files Alternative" "nautilus -w" "<Super>e"
 # System Monitor
 add_keybinding "System Monitor" "gnome-system-monitor" "<Control><Alt>Delete"
 add_keybinding "System Monitor Alternative" "gnome-system-monitor" "<Control><Shift>Escape"
+
+# Switch Window
+su $USER -c "gsettings set org.gnome.desktop.wm.keybindings switch-applications []"
+su $USER -c "gsettings set org.gnome.desktop.wm.keybindings switch-applications-backward []"
+su $USER -c "gsettings set org.gnome.desktop.wm.keybindings switch-windows '[\"<Alt>Tab\"]'"
+su $USER -c "gsettings set org.gnome.desktop.wm.keybindings switch-windows-backward '[\"<Shift><Alt>Tab\"]'"
